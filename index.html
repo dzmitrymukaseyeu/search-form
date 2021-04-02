@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <form 
+    action="#"
+    class="f-search"
+  > 
+    <h3>Форма поиска по длине строки или по подстроке</h3>
+    <input
+      class="f-search__input"
+      type="text"
+      name="value"
+      placeholder="Введите длину строки или строку"
+    >
+    </p>
+    <span>
+      <input
+        class="f-search__checkbox"
+        type="checkbox"
+        name="text"
+        value="Чувствителен к регистру"
+      >
+      Чувствителен к регистру
+    </span>
+    <button
+      data-filter="length"
+      class="f-search__btn"
+      type="button"
+    >
+      Поиск по длине строки 
+    </button>
+    <button
+      data-filter="str"
+      class="f-search__btn"    
+      type="button"
+    >
+      Поиск по подстроке
+    </button>
+    <div class="f-search__output">
+      Результат: 
+      <p class="f-search__output-data"></p>
+    </div>
+  </form>
+  <script src="index.js"></script>
+</body>
+</html>

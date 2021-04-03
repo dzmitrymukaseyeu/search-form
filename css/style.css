@@ -2,15 +2,17 @@
   box-sizing: border-box;
 }
 
-.f-search {
+.wrapper {
   max-width: 600px;
-  border: 1px solid;
   margin: 0 auto;
-  padding: 0 20px 20px;
+  padding: 20px;
+  border: 1px solid;
+  border-radius: 5px;
 }
 
-.f-search h3 {
+h3 {
   text-align: center;
+  margin-top: 0;
 }
 
 .f-search__filter {
@@ -18,19 +20,21 @@
   justify-content: space-between;
 }
 
-.f-search__filter-checkbox {
-  vertical-align: text-top;
-}
-
 .f-search__input {
   width: 100%;
 }
 
-.f-search__output h4 {
+.b-output > h4 {
+  display: none;
   text-align: center;
 }
 
-.f-search__output-data {
-  overflow-wrap: break-word;
-  margin-top: 0;
+.b-output._hidden > h4 {
+  display: block;
+  text-align: center;
+}
+
+.l-string {
+  height: 200px;
+  overflow-y: scroll;
 }

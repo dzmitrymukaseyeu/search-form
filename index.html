@@ -4,52 +4,52 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
 <body>
-  <form 
-    action="#"
-    class="f-search"
-  > 
-    <h3>Поиск по длине строки или по подстроке</h3>
-    <input
-      class="f-search__input"
-      type="text"
-      name="value"
-      placeholder="Введите длину строки или строку"
-    >
-    </p>
-    <div class="f-search__filter">
-      <span>
-        <input
-          class="f-search__filter-checkbox"
-          type="checkbox"
-          name="text"
-          value="Чувствителен к регистру"
+  <div class="wrapper">
+    <h3>Search by string length or substring</h3>
+    <form 
+      action="#"
+      class="f-search"
+    > 
+      <input
+        class="f-search__input"
+        type="text"
+        name="input-string"
+        placeholder="Enter string length or substring"
+      >
+      </p>
+      <div class="f-search__filter">
+        <span>
+          <input
+            class="f-search__filter-checkbox"
+            type="checkbox"
+            name="register"
+          >
+          Case-sensitive
+        </span>
+        <button
+          data-filter="by-length"
+          class="f-search__filter-btn"
+          type="button"
         >
-        Чувствителен к регистру
-      </span>
-      <button
-        data-filter="length"
-        class="f-search__filter-btn"
-        type="button"
-      >
-        Поиск по длине строки 
-      </button>
-      <button
-        data-filter="str"
-        class="f-search__filter-btn"    
-        type="button"
-      >
-        Поиск по подстроке
-      </button>
+          Search by string length 
+        </button>
+        <button
+          data-filter="by-string"
+          class="f-search__filter-btn"    
+          type="button"
+        >
+          Search by substring
+        </button>
+      </div>
+    </form>
+    <div class="b-output">
+      <h4>Results</h4>
     </div>
-    <div class="f-search__output">
-      <h4 class="f-search__output-title">Результат</h4>
-      <p class="f-search__output-data"></p>
-    </div>
-  </form>
-  <script src="/js/index.js"></script>
+  </div>
+  <script src="js/index.js"></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
-const btnFilter = document.querySelectorAll('.f-search__btn');
-const checbox = document.querySelector('.f-search__checkbox');
+const btnFilter = document.querySelectorAll('.f-search__filter-btn');
+const checbox = document.querySelector('.f-search__filter-checkbox');
 const input = document.querySelector('.f-search__input');
 const output = document.querySelector('.f-search__output-data');
+const outputTitle = document.querySelector('.f-search__output-title');
 
 async function getTestData() {
   const response = await fetch('/api/test-data');
@@ -11,9 +12,10 @@ async function getTestData() {
     item.addEventListener('click', (e) => {
       switch(e.target.dataset.filter) {
         case 'length' :
-          console.log('length');
-          const dataLength = data.filter(item => item.length > input.value)
-          output.innerHTML = dataLength;
+            const dataLength = data.filter(item => item.length > input.value);
+
+            output.innerHTML = dataLength;
+            outputTitle.innerHTML = `Результат (${dataLength.length})`;
           break;
         case 'str':
           const dataStr = data.filter(item => {
@@ -25,6 +27,7 @@ async function getTestData() {
           });
 
           output.innerHTML = dataStr;
+          outputTitle.innerHTML = `Результат (${dataStr.length})`;
           break;
       }
     })

@@ -12,7 +12,7 @@
     action="#"
     class="f-search"
   > 
-    <h3>Форма поиска по длине строки или по подстроке</h3>
+    <h3>Поиск по длине строки или по подстроке</h3>
     <input
       class="f-search__input"
       type="text"
@@ -20,31 +20,33 @@
       placeholder="Введите длину строки или строку"
     >
     </p>
-    <span>
-      <input
-        class="f-search__checkbox"
-        type="checkbox"
-        name="text"
-        value="Чувствителен к регистру"
+    <div class="f-search__filter">
+      <span>
+        <input
+          class="f-search__filter-checkbox"
+          type="checkbox"
+          name="text"
+          value="Чувствителен к регистру"
+        >
+        Чувствителен к регистру
+      </span>
+      <button
+        data-filter="length"
+        class="f-search__filter-btn"
+        type="button"
       >
-      Чувствителен к регистру
-    </span>
-    <button
-      data-filter="length"
-      class="f-search__btn"
-      type="button"
-    >
-      Поиск по длине строки 
-    </button>
-    <button
-      data-filter="str"
-      class="f-search__btn"    
-      type="button"
-    >
-      Поиск по подстроке
-    </button>
+        Поиск по длине строки 
+      </button>
+      <button
+        data-filter="str"
+        class="f-search__filter-btn"    
+        type="button"
+      >
+        Поиск по подстроке
+      </button>
+    </div>
     <div class="f-search__output">
-      Результат: 
+      <h4 class="f-search__output-title">Результат</h4>
       <p class="f-search__output-data"></p>
     </div>
   </form>

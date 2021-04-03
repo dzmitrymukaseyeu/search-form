@@ -6,9 +6,31 @@
   max-width: 600px;
   border: 1px solid;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px 20px;
+}
+
+.f-search h3 {
+  text-align: center;
+}
+
+.f-search__filter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.f-search__filter-checkbox {
+  vertical-align: text-top;
 }
 
 .f-search__input {
   width: 100%;
+}
+
+.f-search__output h4 {
+  text-align: center;
+}
+
+.f-search__output-data {
+  overflow-wrap: break-word;
+  margin-top: 0;
 }

@@ -10,7 +10,7 @@
   border-radius: 5px;
 }
 
-h3 {
+.wrapper__title {
   text-align: center;
   margin-top: 0;
 }
@@ -24,13 +24,15 @@ h3 {
   width: 100%;
 }
 
-.b-output > h4 {
+.b-output {
   display: none;
-  text-align: center;
 }
 
-.b-output._hidden > h4 {
+.b-output._visible {
   display: block;
+}
+
+.b-output__title {
   text-align: center;
 }
 

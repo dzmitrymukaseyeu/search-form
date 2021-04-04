@@ -1,3 +1,5 @@
+'use strict'
+
 const path = require('path');
 const https = require('https');
 const express = require('express');

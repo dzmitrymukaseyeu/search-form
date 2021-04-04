@@ -1,22 +1,39 @@
-const btnFilter = document.querySelectorAll('.f-search__filter-btn');
-const checbox = document.querySelector('.f-search__filter-checkbox');
-const input = document.querySelector('.f-search__input');
-const output = document.querySelector('.b-output');
-const outputTitle = document.querySelector('.f-search__output-title');
-const endPoint = '/api/test-data';
+'use strict'
+
+const form = document.querySelector('.f-search');
+const btnFilters = document.querySelectorAll('.f-search__filter-btn');
+const checkbox = document.querySelector('.f-search__filter-checkbox');
+const inputField = document.querySelector('.f-search__input');
+const outputArea = document.querySelector('.b-output');
+const apiEndPoints = {
+	getTestData: '/api/test-data',
+};
 let rawData = null;
 
+form.addEventListener('submit', (e) => e.preventDefault());
+
+const toggleBtnDisableState = () => {
+  [...btnFilters].map(element => {
+    element.disabled = !element.disabled;
+    return element
+  });
+};
+
 const fetchData = async () => {
+  toggleBtnDisableState();
+
   try {
-    const response = await fetch(endPoint);
+    const response = await fetch(apiEndPoints.getTestData);
     rawData = await response.json();
   } catch (error) {
     alert(`Error: ${error.message}`);
+  } finally {
+    toggleBtnDisableState();
   }
 };
 
 const getTestData = () => {
-  btnFilter.forEach((item) => {
+  btnFilters.forEach((item) => {
     item.addEventListener('click', (e) => {
       const { data } = rawData;
       
@@ -24,14 +41,14 @@ const getTestData = () => {
         return alert('Data is missing');
       };
 
-      const isNumber = Boolean(+input.value);
+      const isNumber = Boolean(+inputField.value);
 
       switch(e.target.dataset.filter) {
         case 'by-length' : {
           if (!isNumber) {
             return alert('Invalid input data');
           } 
-          const dataLength = data.filter(item => item.length > input.value);
+          const dataLength = data.filter(item => item.length > inputField.value);
 
           printData(dataLength);
           break;
@@ -41,9 +58,9 @@ const getTestData = () => {
             return alert('Invalid input data');
           } 
           const dataStr = data.filter(item => {
-            return checbox.checked 
-              ? item.includes(input.value)
-              : item.toLowerCase().includes(input.value);
+            return checkbox.checked 
+              ? item.includes(inputField.value)
+              : item.toLowerCase().includes(inputField.value);
           });
 
           printData(dataStr);
@@ -60,9 +77,13 @@ const getTestData = () => {
 const printData = (dataToPrint) => {
   const ul = document.createElement('ul');
   const printedList = document.querySelector('.l-string');
+
+  if(!dataToPrint.length) {
+    return alert('Data not found');
+  };
   
   ul.classList.add('l-string');
-  output.classList.add('_hidden');
+  outputArea.classList.add('_visible');
   printedList?.remove();
   for (let item of dataToPrint) {
     const li = document.createElement('li');
@@ -70,7 +91,7 @@ const printData = (dataToPrint) => {
     ul.append(li);
   };
 
-  output.append(ul);
+  outputArea.append(ul);
 };
 
 fetchData();

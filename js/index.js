@@ -75,5 +75,3 @@ const printData = (dataToPrint) => {
 
 fetchData();
 getTestData();
-
-

@@ -37,4 +37,5 @@ h3 {
 .l-string {
   height: 200px;
   overflow-y: scroll;
+  list-style-type: none;
 }

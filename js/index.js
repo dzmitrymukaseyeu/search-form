@@ -6,13 +6,12 @@ const outputTitle = document.querySelector('.f-search__output-title');
 const endPoint = '/api/test-data';
 let rawData = null;
 
-
 const fetchData = async () => {
   try {
     const response = await fetch(endPoint);
     rawData = await response.json();
   } catch (error) {
-    alert(`Error: ${error.message}`)
+    alert(`Error: ${error.message}`);
   }
 };
 
@@ -50,9 +49,12 @@ const getTestData = () => {
           printData(dataStr);
           break;
         }
-      }
-    })
-  })
+        default: 
+          alert('Button is not found');
+          break;
+      };
+    });
+  });
 };
 
 const printData = (dataToPrint) => {
@@ -62,11 +64,12 @@ const printData = (dataToPrint) => {
   ul.classList.add('l-string');
   output.classList.add('_hidden');
   printedList?.remove();
-  dataToPrint.forEach((item) => {
+  for (let item of dataToPrint) {
     const li = document.createElement('li');
     li.innerText = item;
     ul.append(li);
-  });
+  };
+
   output.append(ul);
 };
 
